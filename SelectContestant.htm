@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>More or Less</title>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript">
+
+        $(document).ready(function () {
+            $("#getNumButton").click(function () {
+
+                var contestNumDiv = $('#contestNumDisplay');
+                var contestantNum = Math.floor((Math.random() * $('#totalContestants').val()) + 1);
+                var leftPosition;
+
+                contestNumDiv.html(contestantNum);
+
+                if (parseInt(contestantNum) > 9) {     //has length of 2
+                    leftPosition = '375px';
+  //                  console.log('contestantNum > 9 so leftPosition: ' + leftPosition);
+                }
+                else {
+                    leftPosition = '460px';
+//                    console.log('contestantNum NOT > 9 so leftPosition: ' + leftPosition);
+                }
+ 
+
+
+                $("#contestNumDisplay").animate({
+                    top: '150px',
+                    left: leftPosition,
+                    opacity: '1.0',
+                    height: '400px',
+                    width: '500px',
+                    fontSize: "400px"
+                }, 1000);
+
+
+                $("#contestNumDisplay").fadeOut(1000);
+                $("#contestNumDisplay").fadeIn(1000);
+
+                $("#contestNumDisplay").slideUp(1000);
+                $("#contestNumDisplay").slideDown(1000);
+
+                $("#contestNumDisplay").fadeOut(1000);
+                $("#contestNumDisplay").fadeIn(1000);
+
+                $("#contestNumDisplay").slideUp(1000);
+                $("#contestNumDisplay").slideDown(1000);
+
+                $("#contestNumDisplay").fadeOut(1000);
+                $("#contestNumDisplay").fadeIn(1000);
+
+                $("#contestNumDisplay").animate({
+                    top: '0px',
+                    left: '0px',
+                    opacity: '0',
+                    height: '5px',
+                    width: '5px',
+                    fontSize: "4px"
+                }, 1000);
+
+            });
+
+        });
+
+    </script>
+    <style type="text/css">
+        #contestNumDisplay
+        {
+            position: absolute;
+            height: 5px;
+            width: 5px;
+            font-size: 4px;
+            color: #006aea;
+            opacity: 0;
+            font-weight: bold;
+        }
+        
+        #getNumButton
+        {
+            cursor: pointer;
+            background-color: #f22b01;
+            color: #ffffff;
+            border: 2px solid #fedd12;
+            border-radius: 10px;
+            font-weight: bold;
+            width: 170px;
+            padding: 2px 5px 2px 5px;
+            font-size: 14px;
+        }
+        
+        body
+        {
+            font-family: 'Arial';
+            background-image: url("1810_Widescreen_Kids_Blank4.jpg");
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <input type="hidden" name="totalContestants" id="totalContestants" />
+    <div id="getNumButton">
+        Select Contestant</div>
+    <div id="contestNumDisplay">
+    </div>
+    <script language="javascript" type="text/javascript">
+//        console.log('window.location.href: ' + window.location.href);
+
+        var totalContestantsInput = document.getElementById("totalContestants");
+        var tParameter = window.location.href.toString().split('t=')[1];
+        totalContestantsInput.value = tParameter;
+
+//        console.log('tParameter: ' + tParameter);
+
+
+    </script>
+</body>
+</html>
